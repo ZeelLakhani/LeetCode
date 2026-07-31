@@ -1,17 +1,15 @@
 class Solution {
     public int minimumPushes(String word) {
-        HashMap<Character, Integer> map = new HashMap<>();
+        int[] count = new int[26];
+        
+        for (char ch : word.toCharArray()) count[ch - 'a']++;
 
-        for (char ch : word.toCharArray()) {
-            map.put(ch , map.getOrDefault(ch , 0) + 1);
-        }
+        int sum = 0 , ch = 0; 
+        Arrays.sort(count);
 
-        int sum = 0 , ch = 0;
-        List<Integer> list = new ArrayList<>(map.values());
-        list.sort(Collections.reverseOrder());
-
-        for (int val : list) {
-            sum += (val * (ch / 8 + 1));
+        for (int i=25; i>=0; i--) {
+            if (count[i] == 0) break;
+            sum += (count[i] * (ch / 8 + 1));
             ch++;
         }
         return sum;
