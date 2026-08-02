@@ -10,8 +10,8 @@ class Solution {
                 else alice += piles[left++];
                 turn = 1;
             } else {
-                if (piles[left] < piles[right]) alice += piles[right--];
-                else alice += piles[left++];
+                if (piles[left] < piles[right]) bob += piles[left++];
+                else bob += piles[right--];
                 turn = 0;
             }
         }
