@@ -8,11 +8,11 @@ class Solution {
             else if (n < min) min = n;
         }
 
-        HashSet<Integer> set = new HashSet<>();
-        for (int n : nums) set.add(n);
+        int[] arr = new int[max + 1];
+        for (int n : nums) arr[n]++;
 
         for (int i=min; i<=max; i++) {
-            if (!set.contains(i)) ans.add(i);
+            if (arr[i] == 0) ans.add(i);
         }
         return ans;
     }
