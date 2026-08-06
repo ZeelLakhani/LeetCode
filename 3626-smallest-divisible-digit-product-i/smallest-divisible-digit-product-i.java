@@ -1,11 +1,11 @@
 class Solution {
     public static int product(int n) {
         int product = 1;
-        while (n > 0) {
-            int num = n % 10;
+        do {
+            product *= n % 10;
             n /= 10;
-            product *= num;
-        }
+        } while (n > 0);
+
         return product;
     }
 
