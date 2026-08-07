@@ -3,18 +3,13 @@ class Solution {
         if (s > n * 9) return -1;
         if (s == 0) return 0;
 
-        String num = "";
+        int num = 0;
         for (int i=0; i<n; i++) {
-            if (s >= 9) {
-                num += "9";
-                s -= 9;
-            }
-            else {
-                num += s;
-                s = 0;
-            }
+            int digit = Math.min(9,s);
+            num = num * 10 + digit;
+            s -= digit;
         }
 
-        return Integer.parseInt(num);
+        return num;
     }
 }
