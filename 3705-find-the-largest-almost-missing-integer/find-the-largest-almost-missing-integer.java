@@ -16,6 +16,8 @@ class Solution {
             return max;
         }
 
+        // For 1 < k < n, only the first and last positions
+        // belong to exactly one subarray.
         if (count[nums[0]] == 1) max = Math.max(max, nums[0]);
         if (count[nums[len - 1]] == 1) max = Math.max(max, nums[len - 1]);
         return max;
